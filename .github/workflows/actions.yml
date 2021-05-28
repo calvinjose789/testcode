@@ -38,6 +38,8 @@ jobs:
           mkdir radarr
           mkdir sonarr
           mkdir qbit
+          sudo systemctl stop sonarr
+          pwd
           sudo git config --global user.name 'calvinjose789'
           sudo git config --global user.email 'calvinjose789@users.noreply.github.com'
           sudo git add .
