@@ -31,6 +31,6 @@ jobs:
           tar -xvzf Radarr*.linux*.tar.gz
           sudo mv Radarr/ /opt
           sudo chown radarr:radarr /opt/Radarr 
-          sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 8000 --subdomain radarr1
+          sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 7878 --subdomain radarr1
           #install qbittorrent
           
