@@ -1,0 +1,21 @@
+name: Swizz
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+concurrency: 
+  group: Swizz
+  cancel-in-progress: true
+
+jobs:
+  Swizz:
+    runs-on: ubuntu-latest
+    name: Swizz
+    continue-on-error: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Swizz
+        run: |
+          bash <(wget -qO - git.io/swizzin) --unattend
