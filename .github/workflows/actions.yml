@@ -34,16 +34,12 @@ jobs:
           sudo mv Radarr/ /opt
           sudo chown radarr:radarr /opt/Radarr 
           cd ..
-          sudo cp Radarr.service /etc/systemd/system/
-          sudo systemctl enable Radarr.service
-          sudo systemctl start Radarr.service
-          timeout 30s cloudflared --url localhost:7878 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" )
+          timeout 1m cloudflared --url localhost:7878 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" ) & timeout 1m sudo /opt/Radarr/Radarr -nobrowser || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" ) & timeout 1m cloudflared --url localhost:8989 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" )
           mkdir data
           cd data
           mkdir Radarr
           mkdir Sonarr
           mkdir qbit
-          sudo systemctl stop Radarr.service
           sudo systemctl stop sonarr
           sudo cp -r /home/runner/.config/Radarr /home/runner/work/testcode/testcode/data/Radarr
           sudo cp -r /home/runner/.config/Sonarr /home/runner/work/testcode/testcode/data/Sonarr
