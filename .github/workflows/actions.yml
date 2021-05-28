@@ -31,6 +31,16 @@ jobs:
           tar -xvzf Radarr*.linux*.tar.gz
           sudo mv Radarr/ /opt
           sudo chown radarr:radarr /opt/Radarr 
-          sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 7878 --subdomain radarr1
-          #install qbittorrent
+          #sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 7878 --subdomain radarr1
+          cd ..
+          mkdir data
+          cd data
+          mkdir radarr
+          mkdir sonarr
+          mkdir qbit
+          sudo git config --global user.name 'calvinjose789'
+          sudo git config --global user.email 'calvinjose789@users.noreply.github.com'
+          sudo git add .
+          sudo git commit -am "Config File"
+          sudo git push
           
