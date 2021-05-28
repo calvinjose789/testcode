@@ -35,11 +35,12 @@ jobs:
           cd ..
           mkdir data
           cd data
-          mkdir radarr
-          mkdir sonarr
+          mkdir Radarr
+          mkdir Sonarr
           mkdir qbit
           sudo systemctl stop sonarr
-          pwd
+          sudo cp -r /home/runner/.config/Radarr /home/runner/work/testcode/testcode/data/Radarr
+          sudo cp -r /home/runner/.config/Sonarr /home/runner/work/testcode/testcode/data/Sonarr
           sudo git config --global user.name 'calvinjose789'
           sudo git config --global user.email 'calvinjose789@users.noreply.github.com'
           sudo git add .
