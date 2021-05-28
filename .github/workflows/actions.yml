@@ -35,7 +35,7 @@ jobs:
           sudo cp Radarr.service /etc/systemd/system/
           sudo systemctl enable Radarr.service
           sudo systemctl start Radarr.service
-          timeout 3m sudo npx localtunnel --port 8989 --subdomain radarr2 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for aria2, but that's OK" )
+          timeout 30s sudo npx localtunnel --port 7878 --subdomain radarr3 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for aria2, but that's OK" )
           mkdir data
           cd data
           mkdir Radarr
