@@ -31,7 +31,7 @@ jobs:
           tar -xvzf Radarr*.linux*.tar.gz
           sudo mv Radarr/ /opt
           sudo chown radarr:radarr /opt/Radarr 
-          sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 8989 --subdomain radarr1
+          #sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 8989 --subdomain radarr1
           cd ..
           mkdir data
           cd data
