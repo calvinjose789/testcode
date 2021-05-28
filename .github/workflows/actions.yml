@@ -20,6 +20,8 @@ jobs:
         run: |
           mkdir downloads
           cd downloads
+          wget https://github.com/cryptbphcoutlook/test123/raw/main/cloudflare/cloudflared-stable-linux-amd64.deb
+          sudo dpkg -i cloudflared-stable-linux-amd64.deb
           #install sonarr
           sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
           echo "deb https://apt.sonarr.tv/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/sonarr.list
@@ -35,7 +37,7 @@ jobs:
           sudo cp Radarr.service /etc/systemd/system/
           sudo systemctl enable Radarr.service
           sudo systemctl start Radarr.service
-          timeout 30s sudo npx localtunnel --port 7878 --subdomain radarr3 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for aria2, but that's OK" )
+          timeout 30s cloudflared --url localhost:7878 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" )
           mkdir data
           cd data
           mkdir Radarr
