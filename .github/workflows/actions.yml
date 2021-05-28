@@ -32,7 +32,7 @@ jobs:
           sudo mv Radarr/ /opt
           sudo chown radarr:radarr /opt/Radarr 
           #sudo /opt/Radarr/Radarr -nobrowser & sudo npx localtunnel --port 8989 --subdomain radarr1
-          timeout 3m sudo /opt/Radarr/Radarr -nobrowser || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" )  & timeout 3m sudo npx localtunnel --port 8989 --subdomain radarr1 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for aria2, but that's OK" )
+          timeout 3m sudo /opt/Radarr/Radarr -nobrowser || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for Jellyfin, but that's OK" )  & timeout 3m sudo npx localtunnel --port 8989 --subdomain radarr2 || ( [[ $? -eq 124 ]] && \echo "WARNING: Timeout reached for aria2, but that's OK" )
           cd ..
           mkdir data
           cd data
