@@ -18,7 +18,4 @@ jobs:
       - uses: actions/checkout@v2
       - name: Swizz
         run: |
-           export TERMINFO=/usr/lib/terminfo
-           wget git.io/swizzin
-           sudo chmod +x swizzin
-           sudo ./swizzin --unattended
+           mono -help
