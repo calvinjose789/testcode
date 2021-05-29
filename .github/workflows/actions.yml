@@ -36,3 +36,4 @@ jobs:
           echo "deb https://apt.sonarr.tv/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/sonarr.list
           sudo apt update
           sudo apt install sonarr
+          sonarr -help
