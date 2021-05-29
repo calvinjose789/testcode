@@ -47,6 +47,7 @@ jobs:
           ${{ secrets.CF_CERT }}
           EOF
           cd ..
+          sudo ln -s /usr/lib64/libmediainfo.so.17.10 /usr/lib64/libmediainfo.so.0
           sudo rclone mount drive:/ /home/runner/mount --allow-other --daemon --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
           sudo rclone mount requests:/ /home/runner/mounttwo --allow-other --daemon --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
           sleep 3s
