@@ -36,4 +36,5 @@ jobs:
           echo "deb https://apt.sonarr.tv/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/sonarr.list
           sudo apt update
           sudo apt install sonarr
-          sudo cat /lib/systemd/system/sonarr.service
+          sudo systemctl stop sonarr
+          mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/var/lib/sonarr
