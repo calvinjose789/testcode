@@ -40,5 +40,5 @@ jobs:
           sudo systemctl stop sonarr
           sudo chown sonarr:sonarr /var/lib/sonarr
           sudo rclone mount drive:/ /home/runner/mount --allow-other --daemon --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
-          sleep 5s
-          mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/home/runner/mount/Config/Sonarr/
+          sleep 3s
+          mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/home/runner/mount/Config/Sonarr/ & /opt/Radarr/Radarr -nobrowser -data=/home/runner/mount/Config/Radarr/ & qbittorrent-nox --webui-port=7887 --profile=/home/runner/mount/Config/ &  cloudflared tunnel --url localhost:7887 & cloudflared tunnel --url localhost:7878 & cloudflared tunnel --url localhost:8989
