@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Server Install
         run: |
+          mkdir /home/runner/mount
           curl https://rclone.org/install.sh | sudo bash
           mkdir -p ~/.config/rclone
           cat >  ~/.config/rclone/rclone.conf  << EOF
@@ -38,4 +39,6 @@ jobs:
           sudo apt install sonarr
           sudo systemctl stop sonarr
           sudo chown sonarr:sonarr /var/lib/sonarr
-          mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/var/lib/sonarr
+          sudo rclone mount drive:/ /home/runner/mount/ --allow-other --daemon --allow-non-empty --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
+          ls /home/runner/mount/
+          #mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/var/lib/sonarr
