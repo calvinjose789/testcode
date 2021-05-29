@@ -39,5 +39,7 @@ jobs:
           sudo apt install sonarr
           sudo systemctl stop sonarr
           sudo chown sonarr:sonarr /var/lib/sonarr
-          sudo rclone mount drive:/ /home/runner/mount --allow-other --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list & ls /home/runner/mount/
+          sudo rclone mount drive:/ /home/runner/mount --allow-other --daemon --cache-db-purge --buffer-size 32M --use-mmap --dir-cache-time 4h --drive-chunk-size 16M --timeout 1h --vfs-cache-mode minimal --vfs-read-chunk-size 128M --vfs-read-chunk-size-limit 1G --fast-list
+          sleep 5s
+          ls /home/runner/mount/
           #mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/var/lib/sonarr
