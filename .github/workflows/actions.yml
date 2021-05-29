@@ -37,4 +37,5 @@ jobs:
           sudo apt update
           sudo apt install sonarr
           sudo systemctl stop sonarr
+          sudo chown sonarr:sonarr /opt/Sonarr
           mono --debug /usr/lib/sonarr/bin/Sonarr.exe -nobrowser -data=/var/lib/sonarr
