@@ -18,4 +18,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Swizz
         run: |
-           mono --help
+           cd ../../../../../../../..
+           sudo find / -name  "libmediainfo.so.*"
