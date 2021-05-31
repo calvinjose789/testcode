@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get install -y libmediainfo-dev
           wget https://mediaarea.net/repo/deb/repo-mediaarea_1.0-16_all.deb && dpkg -i repo-mediaarea_1.0-16_all.deb && apt-get update
-          npm install -g localtunnel
+          sudo npm install -g localtunnel
           mkdir /home/runner/mount
           mkdir /home/runner/mounttwo
           curl https://rclone.org/install.sh | sudo bash
